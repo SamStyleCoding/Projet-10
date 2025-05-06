@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Profil() {
   return (
-	<main className="main bg-dark">
+	<main className="main bg-dark-profile">
                 <div className="header">
                     <h1 className="first-title">Welcome back</h1>
                 </div>
