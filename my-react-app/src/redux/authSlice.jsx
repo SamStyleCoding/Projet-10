@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
-import { getUserLogin } from "../api/getUserLogin";
+import getUserLogin from "../api/getUserLogin";
   
 
 
@@ -39,4 +39,5 @@ const authSlice = createSlice({
 })
 
 export const {logoutToken, setCredentials} = authSlice.actions;
-export default  authSlice.reducer;
+export default authSlice;
+                     

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
-export const getUserData = createAsyncThunk(
+const getUserData = createAsyncThunk(
 	'data',
 	async ({ token }, thunkAPI) => {
 	  try {
@@ -27,3 +27,4 @@ export const getUserData = createAsyncThunk(
 	  }
 	}
   );
+export default getUserData

@@ -1,10 +1,20 @@
 import React from 'react'
+import EditProfil from '../components/EditProfil'
+import { useSelector } from 'react-redux';
 
 export default function Profil() {
+
+    const { data } = useSelector((state) => state.user);
+    const { token } = useSelector((state) => state.auth);
+
   return (
 	<main className="main bg-dark-profile">
                 <div className="header">
                     <h1 className="first-title">Welcome back</h1>
+                    {data ? 
+                    <EditProfil data={data} token={token} /> : 
+                    <p>Loading user...</p>
+                    }
                 </div>
                 <h2 className="sr-only">Accounts</h2>
                 <section className="account">

@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
-import { getUserData } from "../api/getUserData";
+import getUserData from "../api/getUserData";
 
   
 
@@ -33,4 +33,4 @@ const userSlice = createSlice({
 })
 
 export const {logoutUser} = userSlice.actions;
-export default  userSlice.reducer;
+export default userSlice;
