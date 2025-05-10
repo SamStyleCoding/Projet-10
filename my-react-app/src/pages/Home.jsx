@@ -1,8 +1,10 @@
-import React from 'react'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
 	  <main>
+        <Nav />
             <div className="hero">
                 <section className="hero-content">
                     <h2 className="sr-only">Promoted Content</h2>
@@ -46,6 +48,7 @@ export default function Home() {
                     </p>
                 </div>
             </section>
+            <Footer />
         </main>
   )
 }

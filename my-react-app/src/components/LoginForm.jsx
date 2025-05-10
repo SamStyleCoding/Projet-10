@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import getUserLogin from "../api/getUserLogin"
@@ -9,9 +9,20 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [formError, setFormError] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { isLoading, error } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        const savedEmail = localStorage.getItem('rememberedEmail');
+        const savedPassword = localStorage.getItem('rememberedPassword');
+            if (savedEmail && savedPassword) {
+                setEmail(savedEmail);
+                setPassword(savedPassword);
+                setRememberMe(true);
+            }
+        }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,6 +33,15 @@ const LoginForm = () => {
         } else {
             setFormError(''); 
         }
+
+        if (rememberMe) {
+            localStorage.setItem('rememberedEmail', email);
+            localStorage.setItem('rememberedPassword', password);
+        } else {
+            localStorage.removeItem('rememberedEmail');
+            localStorage.removeItem('rememberedPassword');
+        }
+
         
         dispatch( getUserLogin({ email, password }))
             .then(() => {
@@ -63,7 +83,12 @@ const LoginForm = () => {
                     />
                 </div>
                 <div className="input-remember">
-                    <input type="checkbox" id="remember-me"/>
+                    <input 
+                    type="checkbox" 
+                    id="remember-me"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    />
                     <label htmlFor="remember-me">Remember me</label>
 
                 </div>
