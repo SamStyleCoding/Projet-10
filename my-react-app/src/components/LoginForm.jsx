@@ -53,11 +53,13 @@ const LoginForm = () => {
     return (
         <div>
             <form>
+
                 {formError && (
-                    <p style={{ color: 'red', marginTop: '10px' }}>
+                    <p className='error'>
                         {formError}
                     </p>
                 )}
+
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
                     <input
@@ -70,6 +72,7 @@ const LoginForm = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
+
                 <div className="input-wrapper">
                     <label htmlFor="password">Password</label>
                     <input
@@ -82,6 +85,7 @@ const LoginForm = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
+
                 <div className="input-remember">
                     <input 
                     type="checkbox" 
@@ -90,11 +94,12 @@ const LoginForm = () => {
                     onChange={(e) => setRememberMe(e.target.checked)}
                     />
                     <label htmlFor="remember-me">Remember me</label>
-
                 </div>
+
                 <button className="sign-in-button" type="submit" disabled={isLoading} onClick={handleSubmit}>
                     {isLoading ? 'Loading...' : 'Sign in'}
                 </button>
+                
             </form>
         </div>
     )
