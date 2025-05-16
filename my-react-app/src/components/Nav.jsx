@@ -41,7 +41,7 @@ export default function Nav() {
         <div className="main-nav-group">
             <Link to="/profil" className="main-nav-item">
                 <i className="fa fa-user-circle"></i>
-                { data ? data.firstName : 'erreur' }
+                { data ? data.userName : 'erreur' }
             </Link>
             <a onClick={handleLogout} className="main-nav-item">
                 <i className="fa fa-sign-out"></i>
