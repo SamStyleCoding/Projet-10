@@ -4,7 +4,7 @@ import putUserData from "../api/putUserData";
 const initialState = {
     userName: null,
     token: null,
-    status: 'idle',
+    status: '',
     error: null,
 };
 
@@ -12,11 +12,8 @@ const putSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setToken(state, action) {
-            state.token = action.payload;
-        },
         setUserName(state, action) {
-            state.userName = action.payload;
+            state.userName = action.payload.userName;
         },
     },
     extraReducers: (builder) => {
@@ -35,6 +32,6 @@ const putSlice = createSlice({
     }
 });
 
-export const { setToken, setUserName } = putSlice.actions;
+export const { setUserName } = putSlice.actions;
 
 export default putSlice;

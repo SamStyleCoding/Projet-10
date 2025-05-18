@@ -41,7 +41,8 @@ function EditProfil({data, token}) {
                     type="text" 
                     placeholder={data.userName} 
                     autoComplete="username"
-                    name="username" value={userName} 
+                    name="username" 
+                    value={userName} 
                     onChange={(e) => setUserName(e.target.value)}/>
                 </div>
                 <div className="button-name">
