@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const putSlice = createSlice({
-    name: 'user',
+    name: 'put',
     initialState,
     reducers: {
         setUserName(state, action) {
